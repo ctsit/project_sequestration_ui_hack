@@ -24,7 +24,8 @@ class ExternalModule extends AbstractExternalModule {
         $_GET["show_completed"] = 1;
 
         $settings = [
-            "pids" => $this->getSequesteredProjectIds()
+            "pids" => $this->getSequesteredProjectIds(),
+            "replacement_text" => $this->getSystemSetting('replacement_text')
         ];
 
         $this->setJsSettings($settings);

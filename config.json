@@ -13,5 +13,13 @@
             "email": "CTSIT-REDCAP-MODULE-SUPPO@LISTS.UFL.EDU",
             "institution": "University of Florida - CTSI"
         }
+    ],
+    "system-settings": [
+        {
+            "name": "Replacement Text",
+            "key": "replacement_text",
+            "type": "rich-text"
+        }
     ]
+
 }

@@ -12,7 +12,13 @@ $( document ).ready(function() {
 });
 
 function markSequestered(element) {
+  let replacement_text = (PSUIH.replacement_text) ?? "Sequestered";
+  // HACK: strip surrounding tags to avoid linebreak in badge while retaining styling
+  // Drops any text after the first line in the config
+  if (replacement_text != "Sequestered") {
+    replacement_text = $(replacement_text).html()
+  }
   $(element)
     .find("span")
-    .html("Sequestered");
+    .html(replacement_text);
 }
