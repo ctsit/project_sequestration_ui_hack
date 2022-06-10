@@ -9,9 +9,8 @@ class ExternalModule extends AbstractExternalModule {
     function redcap_every_page_top($project_id) {
 
         if (!defined('REDCAP_ENTITY_PREFIX')) {
-            // TODO: integrate with project ownership
             // Exits gracefully when REDCap Entity is not enabled.
-            // return;
+            return;
         }
 
         // only try to operate on projects page
@@ -33,8 +32,19 @@ class ExternalModule extends AbstractExternalModule {
     }
 
     protected function getSequesteredProjectIds() {
-        // TODO: search project ownership database for pids with sequestered flag
-        return [27, 80];
+        // REDCap won't allow this due to no PID on main page, an error is thrown by core
+        // $factory = new \REDCapEntity\EntityFactory();
+        // $query_result <- $factory->query('project_ownership')
+        //     ->condition('sequestered', true)
+        //     ->execute();
+
+        $sql = "SELECT pid FROM redcap_entity_project_ownership WHERE sequestered = 1;";
+        $query_result = $this->framework->query($sql, []);
+
+        $projects = [];
+        foreach ($query_result as $r) { array_push($projects, $r['pid']); }
+
+        return $projects;
     }
 
     protected function includeCss($path) {
