@@ -1,0 +1,25 @@
+{
+    "name": "Project Sequestration UI Hack",
+    "description": "Marks completed projects as sequestered",
+    "namespace": "PSUIH\\ExternalModule",
+    "framework-version": 8,
+    "permissions": [
+        "redcap_every_page_top"
+    ],
+    "enable-every-page-hooks-on-system-pages": true,
+    "authors": [
+        {
+            "name": "University of Florida CTS-IT",
+            "email": "CTSIT-REDCAP-MODULE-SUPPO@LISTS.UFL.EDU",
+            "institution": "University of Florida - CTSI"
+        }
+    ],
+    "system-settings": [
+        {
+            "name": "Replacement Text",
+            "key": "replacement_text",
+            "type": "rich-text"
+        }
+    ]
+
+}
